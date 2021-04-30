@@ -8,8 +8,8 @@ import axios from '@/utils/request'  // 引入封装好的axios
 const test = () => {  // 接口
     return axios.get('/test')  
 }
-const login = () => {
-    return axios.post('/save')
+const loginIn = () => {
+    return axios.post('/loginIn')
 }
 
-export { test, login }
+export { test, loginIn }

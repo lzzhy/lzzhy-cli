@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import { test, login } from '@/api/login'
+import { test, loginIn } from '@/api/login'
 import { setStore } from '@/utils/utils'
 export default {
     name: 'login',
@@ -43,16 +43,18 @@ export default {
                 phone: this.loginForm.phone,
                 password: this.loginForm.password
             }
-            login(params).then(res => {
-                this.$message.success('登录成功')
-                setTimeout(res => {
-                    console.log(res);
-                    this.$message.success('我是首页')
-                    this.$router.push({path: '/home'})
-                }, 1000)
-                setStore('lzzhy', res);
+            loginIn(params).then(res => {
+                if(res.code == '0') {
+                    this.$message.success('登录成功')
+                    setTimeout(res => {
+                        console.log(res);
+                        this.$router.push({path: '/home'})
+                    }, 1000)
+                    setStore('lzzhy', res);
+                } else {
+                    this.$message.error(res.err_msg)
+                }
             })
-            // this.$router.push({path: '/home'})
         }
     },
     created() {

@@ -34,12 +34,12 @@ export default {
             if(!msg.trim().length) {  // 输入框中没值则return 
                 return
             }
-            ws.send(JSON.stringify({
-                id: new Data().getTime(),
-                user: this.userName,
-                dataTime: new Data().getTime,
-                msg: this.msg
-            }))
+            // ws.send(JSON.stringify({
+            //     id: new Data().getTime(),
+            //     user: this.userName,
+            //     dataTime: new Data().getTime,
+            //     msg: this.msg
+            // }))
 
             this.msg = ''
         },
@@ -64,10 +64,10 @@ export default {
     mounted() {
         // const socket = new WebSocket('ws://localhost:8080');  // ws可以改成wss意思为加密（跟http和https一个意思）
 
-        // ws.addEventListener('open', this.handleOpen.bind(this), false)  // 通过bind改变this的指向
-        // ws.addEventListener('close', this.handleClose.bind(this), false)
-        // ws.addEventListener('error', this.handleError.bind(this), false)
-        // ws.addEventListener('message', this.handleMessage.bind(this), false)
+        // socket.addEventListener('open', this.handleOpen.bind(this), false)  // 通过bind改变this的指向
+        // socket.addEventListener('close', this.handleClose.bind(this), false)
+        // socket.addEventListener('error', this.handleError.bind(this), false)
+        // socket.addEventListener('message', this.handleMessage.bind(this), false)
     },
     beforeCreate() {}, //生命周期 - 创建之前
     beforeMount() {}, //生命周期 - 挂载之前
